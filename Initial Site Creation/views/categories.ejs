@@ -1,0 +1,13 @@
+﻿<%- include('partials/header') %>
+<section class="content-section">
+  <h1 class="page-title"><%= title %></h1>
+  <p class="section-description">Select a focus area to find matching initiatives:</p>
+  <ul class="category-grid">
+    <% categories.forEach((category) => { %>
+      <li class="category-card">
+        <span class="category-tag"><%= category %></span>
+      </li>
+    <% }) %>
+  </ul>
+</section>
+<%- include('partials/footer') %>
