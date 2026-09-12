@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>Database Retrieval</title></head>
+<body>
+    <h1>Organizations</h1>
+    <ul><% organizations.forEach(org => { %><li><b><%= org.organization_name %></b>: <%= org.description %></li><% }) %></ul>
+    <h1>Projects</h1>
+    <ul><% projects.forEach(p => { %><li><%= p.project_name %> (Org ID: <%= p.organization_id %>, Cat ID: <%= p.category_id %>)</li><% }) %></ul>
+    <h1>Categories</h1>
+    <ul><% categories.forEach(c => { %><li><%= c.category_name %></li><% }) %></ul>
+</body>
+</html>
