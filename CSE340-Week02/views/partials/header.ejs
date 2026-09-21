@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> | Community Action Network</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="/" class="brand-logo">Community Network</a>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="/" class="<%= title === 'Home' ? 'active' : '' %>">Home</a></li>
+          <li><a href="/organizations" class="<%= title === 'Organizations' ? 'active' : '' %>">Organizations</a></li>
+          <li><a href="/projects" class="<%= title === 'Projects' ? 'active' : '' %>">Projects</a></li>
+          <li><a href="/categories" class="<%= title === 'Categories' ? 'active' : '' %>">Categories</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="page-container">
