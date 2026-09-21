@@ -1,0 +1,15 @@
+﻿<%- include('partials/header') %>
+<h1 class="page-title"><%= title %></h1>
+<p class="section-description">Browse the next five upcoming service projects:</p>
+<div class="card-grid">
+  <% projects.forEach((proj) => { %>
+    <article class="card">
+      <div class="card-body">
+        <h2><a href="/project/<%= proj.project_id %>"><%= proj.project_name %></a></h2>
+        <p class="org-meta">Partner: <a href="/organization/<%= proj.org_id %>"><%= proj.org_name %></a></p>
+        <p><%= proj.project_description %></p>
+      </div>
+    </article>
+  <% }) %>
+</div>
+<%- include('partials/footer') %>

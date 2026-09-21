@@ -1,0 +1,11 @@
+﻿<%- include('partials/header') %>
+<h1 class="page-title"><%= title %></h1>
+<p class="section-description">Select a focus category to view all corresponding volunteer initiatives:</p>
+<ul class="category-grid">
+  <% categories.forEach((cat) => { %>
+    <li class="category-card">
+      <a href="/category/<%= cat.category_id %>"><%= cat.category_name %></a>
+    </li>
+  <% }) %>
+</ul>
+<%- include('partials/footer') %>

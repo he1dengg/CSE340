@@ -1,0 +1,22 @@
+﻿<%- include('partials/header') %>
+<article class="detail-card">
+  <h1 class="page-title"><%= project.project_name %></h1>
+  <p class="detail-meta">Partner Organization: <a href="/organization/<%= project.org_id %>"><%= project.org_name %></a></p>
+
+  <div class="tag-container">
+    <span class="tag-label">Categories:</span>
+    <% if (categories.length === 0) { %>
+      <span>None</span>
+    <% } else { %>
+      <% categories.forEach((cat) => { %>
+        <a href="/category/<%= cat.category_id %>" class="category-tag"><%= cat.category_name %></a>
+      <% }) %>
+    <% } %>
+  </div>
+
+  <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+    <h2 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Project Overview</h2>
+    <p><%= project.project_description %></p>
+  </div>
+</article>
+<%- include('partials/footer') %>

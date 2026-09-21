@@ -1,0 +1,15 @@
+﻿<%- include('partials/header') %>
+<h1 class="page-title"><%= title %></h1>
+<p class="section-description">Partner non-profits and community organizations driving positive change:</p>
+<div class="card-grid">
+  <% orgs.forEach((org) => { %>
+    <article class="card">
+      <img src="/images/org-placeholder.svg" class="card-img" alt="Partner Logo">
+      <div class="card-body">
+        <h2><a href="/organization/<%= org.org_id %>"><%= org.org_name %></a></h2>
+        <p><%= org.org_description %></p>
+      </div>
+    </article>
+  <% }) %>
+</div>
+<%- include('partials/footer') %>

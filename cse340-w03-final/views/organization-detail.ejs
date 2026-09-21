@@ -1,0 +1,19 @@
+﻿<%- include('partials/header') %>
+<section class="detail-card">
+  <h1 class="page-title"><%= org.org_name %></h1>
+  <p class="section-description"><%= org.org_description %></p>
+</section>
+
+<h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Active Service Projects</h2>
+<% if (projects.length === 0) { %>
+  <p class="section-description">No active projects currently listed for this organization.</p>
+<% } else { %>
+  <ul class="items-list">
+    <% projects.forEach((proj) => { %>
+      <li class="list-item">
+        <span class="list-item-title"><a href="/project/<%= proj.project_id %>"><%= proj.project_name %></a></span>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>
+<%- include('partials/footer') %>
