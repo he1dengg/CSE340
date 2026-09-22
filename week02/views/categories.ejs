@@ -1,0 +1,24 @@
+﻿<%- include('partials/header') %>
+<div class="page-header">
+  <h1 class="page-title"><%= title %></h1>
+  <p class="page-subtitle">Select a focus category to view beautifully curated initiatives.</p>
+</div>
+<ul class="category-grid">
+  <% 
+    const cImgs = {
+      'Environmental': 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&auto=format&fit=crop',
+      'Educational': 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800&auto=format&fit=crop',
+      'Community Service': 'https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=800&auto=format&fit=crop',
+      'Health and Wellness': 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop'
+    };
+  %>
+  <% categories.forEach(cat => { %>
+    <a href="/category/<%= cat.category_id %>" class="category-card">
+      <img src="<%= cImgs[cat.category_name] || 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=800&auto=format&fit=crop' %>" alt="Category" onerror="this.src='/images/org-placeholder.svg'">
+      <div class="category-overlay">
+        <span class="category-name"><%= cat.category_name %></span>
+      </div>
+    </a>
+  <% }) %>
+</ul>
+<%- include('partials/footer') %>

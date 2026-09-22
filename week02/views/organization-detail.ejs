@@ -1,0 +1,30 @@
+﻿<%- include('partials/header') %>
+<div class="detail-hero">
+  <img src="<%= org.logo %>" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; box-shadow: var(--shadow); border: 4px solid white; margin-bottom: 1.5rem;">
+  <h1 class="page-title"><%= org.org_name %></h1>
+  <p class="page-subtitle" style="font-size: 1.25rem;"><%= org.org_description %></p>
+  <div class="tag-container" style="margin-top: 2rem;">
+    <a href="mailto:<%= org.contact_email %>" class="category-tag">✉️ <%= org.contact_email %></a>
+  </div>
+</div>
+<div class="page-header" style="margin-top: 5rem; margin-bottom: 3rem;">
+  <h2 class="page-title" style="font-size: 2.5rem;">Active Initiatives</h2>
+</div>
+<% if (projects.length === 0) { %>
+  <p class="page-subtitle" style="text-align: center;">No active projects currently listed.</p>
+<% } else { %>
+  <div class="grid">
+    <% projects.forEach((proj, idx) => { %>
+      <article class="card">
+        <div class="card-content">
+          <h2 class="card-title"><a href="/project/<%= proj.project_id %>"><%= proj.project_name %></a></h2>
+          <div class="card-footer" style="margin-top: 1.5rem;">
+            <span>📍 <%= proj.location %></span>
+            <span>📅 <%= new Date(proj.project_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) %></span>
+          </div>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+<% } %>
+<%- include('partials/footer') %>

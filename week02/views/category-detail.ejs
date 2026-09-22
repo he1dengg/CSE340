@@ -1,0 +1,24 @@
+﻿<%- include('partials/header') %>
+<div class="detail-hero" style="background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(236, 72, 153, 0.1));">
+  <h1 class="page-title"><%= category.category_name %></h1>
+  <p class="page-subtitle">Initiatives curated specifically for this focus area.</p>
+</div>
+<% if (projects.length === 0) { %>
+  <p class="page-subtitle" style="text-align: center;">No active service projects registered here yet.</p>
+<% } else { %>
+  <div class="grid">
+    <% projects.forEach((proj) => { %>
+      <article class="card">
+        <div class="card-content">
+          <h2 class="card-title"><a href="/project/<%= proj.project_id %>"><%= proj.project_name %></a></h2>
+          <p class="card-meta">Partner: <a href="/organization/<%= proj.org_id %>"><%= proj.org_name %></a></p>
+          <div class="card-footer" style="margin-top: 1.5rem;">
+            <span>📍 <%= proj.location %></span>
+            <span>📅 <%= new Date(proj.project_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) %></span>
+          </div>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+<% } %>
+<%- include('partials/footer') %>

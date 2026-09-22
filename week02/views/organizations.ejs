@@ -1,0 +1,23 @@
+﻿<%- include('partials/header') %>
+<div class="page-header">
+  <h1 class="page-title"><%= title %></h1>
+  <p class="page-subtitle">Elite non-profits and organizations driving local change.</p>
+</div>
+<div class="grid">
+  <% orgs.forEach(org => { %>
+    <article class="card">
+      <div class="card-img-wrapper">
+        <img src="<%= org.logo %>" class="card-img" alt="Organization Logo">
+      </div>
+      <div class="card-content">
+        <h2 class="card-title"><a href="/organization/<%= org.org_id %>"><%= org.org_name %></a></h2>
+        <p class="card-text"><%= org.org_description %></p>
+        <div class="card-footer">
+          <span><strong>Contact:</strong></span>
+          <a href="mailto:<%= org.contact_email %>" style="color: var(--primary); text-decoration: none; font-weight: 600;"><%= org.contact_email %></a>
+        </div>
+      </div>
+    </article>
+  <% }) %>
+</div>
+<%- include('partials/footer') %>
